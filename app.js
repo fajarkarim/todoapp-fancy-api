@@ -10,6 +10,7 @@ require('dotenv').config()
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var tasks = require('./routes/tasks');
 
 var app = express();
 
@@ -22,6 +23,7 @@ app.use(compression())
 
 app.use('/', index);
 app.use('/api/users', users);
+app.use('/api/tasks', tasks)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,13 +6,14 @@ var taskSchema = new Schema({
   title: {
     type: String
   },
-  user: { type: Schema.Types.ObjectId, ref: 'User'}
-  tasklist: [{
+  userID: { type: Schema.Types.ObjectId, ref: 'User'},
+  todos: [{
     content: {
       type: String
     },
     complete: {
-      type: false
+      type: Boolean,
+      default: false
     }
   }],
   category: {
