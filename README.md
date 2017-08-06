@@ -1,2 +1,6 @@
-# todoapp-fancy-api
-api end poin for todo apps
+# express-gen-fajar
+Extraordinary express generator, created by fajar
+
+## How to run
+in development mode: ```npm run dev```
+in production: ```npm start```
