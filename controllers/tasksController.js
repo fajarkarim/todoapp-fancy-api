@@ -65,12 +65,14 @@ var removeTodos = (req, res) => {
 
 var getAll = (req, res) => {
   Task.find({})
+  .populate('userID', '_id name email')
+  .exec()
   .then(tasks => res.send(tasks))
   .catch(err => res.status(500).send(err))
 }
 
 var getOne = (req, res) => {
-  Task.findById(req.params.id)
+  Task.find({ userID: req.params.userid })
   .then(task => res.send(task))
   .catch(err => res.status(500).send(err))
 }
@@ -90,8 +92,10 @@ var update = (req, res) => {
 module.exports = {
   create,
   getAll,
+  getOne,
   newTodos,
   updateTodosContent,
   updateTodosStatus,
-  removeTodos
+  removeTodos,
+  remove
 };
